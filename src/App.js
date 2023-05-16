@@ -1,16 +1,29 @@
-import React from "react"
-import Confetti from './Components/Confetti'
-import Die from "./Components/Die"
-import './Styles/Style.css'
+import React, { Component } from 'react';
+import MyComponent from "./Components/MyComponent";
+import "./Styles/Style.css";
 
-export default function App() {
-    
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <main>
-            Test
-            <Die />
-            <Confetti />
-        </main>
-    )
+        this.onClickBtn = this.onClickBtn.bind(this);
+    }
+
+    onClickBtn(){
+        console.clear();
+        console.log("Button was heavily clicked on!");
+    }
+
+    render(){
+        return(
+            <div>
+                <MyComponent 
+                    title="React"
+                    onButtonClicked={this.onClickBtn}
+                />
+            </div>
+        )
+    }
+
 }
+export default App;
